@@ -15,16 +15,12 @@
         "illuminate/http": ">=5.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "4.*",
+        "mockery/mockery": "0.9.*"
     },
     "autoload": {
         "psr-4": {
             "Caffeinated\\SEO\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Caffeinated\\SEO\\Tests\\": "tests"
         }
     },
     "extra": {
