@@ -29,8 +29,8 @@ class SEOServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app->singleton('caffeinated.seo.metadata', function() {
-			return new Handlers\Metadata;
+		$this->app->singleton('caffeinated.seo.metadata', function($app) {
+			return new Handlers\Metadata($app['request']);
 		});
 	}
 

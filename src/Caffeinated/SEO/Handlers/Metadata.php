@@ -1,6 +1,8 @@
 <?php
 namespace Caffeinated\SEO\Handlers;
 
+use Illuminate\Http\Request;
+
 class Metadata
 {
 	/**
@@ -32,6 +34,21 @@ class Metadata
 	 * @var int
 	 */
 	protected $maxDescriptionLength = 160;
+
+	/**
+	 * @var Request
+	 */
+	protected $request;
+
+	/**
+	 * Create a new instance of the Metadata class.
+	 *
+	 * @param  Request  $request
+	 */
+	public function __construct(Request $request)
+	{
+		$this->request = $request;
+	}
 
 	/**
 	 * Set the metadata title.
@@ -193,7 +210,11 @@ class Metadata
 		}
 
 		if (! is_null($canonical)) {
-			$html[] = PHP_EOL.'<link rel="canonical" href="'.$canonical.'">';
+			$currentUrl = $this->request->fullUrl();
+
+			if ($canonical != $currentUrl) {
+				$html[] = PHP_EOL.'<link rel="canonical" href="'.$canonical.'">';
+			}
 		}
 
 		return implode(PHP_EOL, $html);
