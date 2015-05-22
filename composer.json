@@ -1,0 +1,34 @@
+{
+    "name": "caffeinated/seo",
+    "description": "Laravel 5 SEO generator",
+    "keywords": ["seo", "metadata", "robots", "sitemap", "laravel", "caffeinated"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shea Lewis",
+            "email": "shea.lewis89@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": ">=5.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Caffeinated\\SEO\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Caffeinated\\SEO\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
