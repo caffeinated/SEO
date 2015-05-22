@@ -71,7 +71,18 @@ class Metadata
 	 */
 	public function setKeywords($keywords)
 	{
-		$this->keywords = implode(',', (array) $keywords);
+		$this->keywords = implode(', ', (array) $keywords);
+	}
+
+	/**
+	 * Set the canonical URL.
+	 *
+	 * @param  string  $url
+	 * @return null
+	 */
+	public function setCanonical($url)
+	{
+		$this->canonical = $url;
 	}
 
 	/**
@@ -129,6 +140,30 @@ class Metadata
 	}
 
 	/**
+	 * Get the canonical URL.
+	 *
+	 * @return string
+	 */
+	public function getCanonical()
+	{
+		return $this->canonical ?: null;
+	}
+
+	/**
+	 * Reset all metadata.
+	 *
+	 * @return void
+	 */
+	public function reset()
+	{
+		$this->title         = null;
+		$this->description   = null;
+		$this->keywords      = null;
+		$this->miscellaneous = null;
+		$this->canonical     = null;
+	}
+
+	/**
 	 * Generate and render the HTML metadata tags.
 	 *
 	 * @return string
@@ -139,9 +174,9 @@ class Metadata
 		$description   = $this->getDescription();
 		$keywords      = $this->getKeywords();
 		$miscellaneous = $this->getMiscellaneous();
-		$canonical     = null;
+		$canonical     = $this->getCanonical();
 
-		$html[] = '<title>'.$title.'</title>';
+		$html[] = '<title>'.$title.'</title>'.PHP_EOL;
 
 		if (! is_null($description)) {
 			$html[] = '<meta name="description" content="'.$description.'">';
@@ -158,7 +193,7 @@ class Metadata
 		}
 
 		if (! is_null($canonical)) {
-			$html[] = '<link rel="canonical" href="'.$canonical.'">';
+			$html[] = PHP_EOL.'<link rel="canonical" href="'.$canonical.'">';
 		}
 
 		return implode(PHP_EOL, $html);
