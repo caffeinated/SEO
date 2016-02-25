@@ -42,7 +42,7 @@ class SEOServiceProvider extends ServiceProvider
 	 */
 	protected function registerServices()
 	{
-		$this->app->bindShared('caffeinated.seo.metadata', function($app) {
+		$this->app->singleton('caffeinated.seo.metadata', function($app) {
 			return new Metadata($app['request']);
 		});
 	}
