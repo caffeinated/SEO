@@ -1,4 +1,5 @@
 <?php
+
 namespace Caffeinated\SEO\Handlers;
 
 use Illuminate\Http\Request;

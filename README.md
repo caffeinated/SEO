@@ -1,7 +1,6 @@
 Caffeinated SEO
 ===============
-[![Laravel 5.1](https://img.shields.io/badge/Laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
-[![Laravel 5.2](https://img.shields.io/badge/Laravel-5.2-orange.svg?style=flat-square)](http://laravel.com)
+[![Laravel 5.3](https://img.shields.io/badge/Laravel-5.3-orange.svg?style=flat-square)](http://laravel.com)
 [![Source](http://img.shields.io/badge/source-caffeinated/SEO-blue.svg?style=flat-square)](https://github.com/caffeinated/SEO)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
@@ -16,7 +15,7 @@ Quick Installation
 Begin by installing the package through Composer.
 
 ```
-composer require caffeinated/seo=~2.0
+composer require caffeinated/seo
 ```
 
 Once this operation is complete, simply add both the service provider and facade classes to your project's `config/app.php` file:
@@ -28,7 +27,7 @@ Caffeinated\SEO\SEOServiceProvider::class,
 
 #### Facade
 ```php
-'Meta' => Caffeinated\SEO\Facades\Metadata::class,
+'SEOMeta' => Caffeinated\SEO\Facades\Metadata::class,
 ```
 
 And that's it! With your coffee in reach, start building up your SEO!

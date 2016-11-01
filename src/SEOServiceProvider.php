@@ -30,39 +30,9 @@ class SEOServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->registerServices();
-
-		$this->configureSapling();
-	}
-
-	/**
-	 * Register the package services.
-	 *
-	 * @return void
-	 */
-	protected function registerServices()
-	{
 		$this->app->singleton('caffeinated.seo.metadata', function($app) {
 			return new Metadata($app['request']);
 		});
-	}
-
-	/**
-	 * Configure Sapling
-	 *
-	 * Configures Sapling (Twig) extensions if the Sapling package
-	 * is found to be installed.
-	 *
-	 * @return void
-	 */
-	protected function configureSapling()
-	{
-		if ($this->app['config']->has('sapling')) {
-			$this->app['config']->push(
-				'sapling.extensions',
-				'Caffeinated\SEO\Twig\Extensions\Metadata'
-			);
-		}
 	}
 
 	/**
