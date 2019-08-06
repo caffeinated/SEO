@@ -1,3 +1,5 @@
+# This package has been abandoned and is no longer maintained.
+
 Caffeinated SEO
 ===============
 [![Laravel 5.3](https://img.shields.io/badge/Laravel-5.3-orange.svg?style=flat-square)](http://laravel.com)
